@@ -19,24 +19,19 @@
       environment.systemPackages =
         [ pkgs.neovim
 	  pkgs.brave
-	  pkgs.firefox
 	  pkgs.spotify
 	  pkgs.telegram-desktop
 	  pkgs.qbittorrent
 	  pkgs.tailscale
 	  pkgs.aldente
-	  pkgs.sublime4
 	  pkgs.chatgpt
 	  pkgs.jetbrains.idea-ultimate
 	  pkgs.jetbrains.pycharm-professional
-	  pkgs.android-studio
 	  pkgs.vscode
 	  pkgs.postman
 	  pkgs.dbeaver-bin
 	  pkgs.docker
 	  pkgs.wireshark
-	  pkgs.teams
-	  pkgs.anydesk
 	  pkgs.realvnc-vnc-viewer
         ];
 
@@ -51,6 +46,11 @@
 	  "royal-tsx"
 	  "postgres-unofficial"
 	  "openvpn-connect"
+	  "firefox"
+	  "sublime-text"
+	  "android-studio"
+	  "anydesk"
+	  "microsoft-teams"
 	];
 	masApps = {
 	  "WhatsApp" = 310633997;
@@ -127,6 +127,13 @@
 
 	    # Automatically migrate existing Homebrew installations
             # autoMigrate = true;
+
+	    # Automatically fix man page permissions for Homebrew
+	    system.activationScripts.fixHomebrewPermissions = {
+              text = ''
+              	chown -R ${config.nix-homebrew.user}:staff /usr/local/share/man /usr/local/share/man/man8
+              '';
+            };
           };
         }
       ];
