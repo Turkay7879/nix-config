@@ -62,7 +62,6 @@
 	  "Unarchiver" = 425424353;
 	  "Xcode" = 497799835;
 	  "Outlook" = 985367838;
-	  "Kolay" = 1507156228;
 	};
 	onActivation.cleanup = "zap";
 	onActivation.autoUpdate = true;
@@ -103,7 +102,7 @@
       system.stateVersion = 6;
 
       # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
+      nixpkgs.hostPlatform = "x86_64-darwin";
     };
   in
   {
@@ -120,7 +119,7 @@
             enable = true;
 
             # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-            enableRosetta = true;
+            # enableRosetta = true;
 
             # User owning the Homebrew prefix
             user = "turkay";
