@@ -127,13 +127,6 @@
 
 	    # Automatically migrate existing Homebrew installations
             # autoMigrate = true;
-
-	    # Automatically fix man page permissions for Homebrew
-	    system.activationScripts.fixHomebrewPermissions = {
-              text = ''
-              	chown -R ${config.nix-homebrew.user}:staff /usr/local/share/man /usr/local/share/man/man8
-              '';
-            };
           };
         }
       ];
